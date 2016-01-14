@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DISTRI_DEVModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ART_Article">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Saison" Type="int" />
+          <Property Name="ID_Rayon" Type="int" />
+          <Property Name="ID_Famille" Type="int" />
+          <Property Name="ID_SousFamille" Type="int" />
+          <Property Name="CodeArticle" Type="varchar" MaxLength="15" />
+          <Property Name="AncienCodeArticle" Type="varchar" MaxLength="15" />
+          <Property Name="CodeIDEP" Type="varchar" MaxLength="50" />
+          <Property Name="Libelle" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LibelleCourt" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="text" />
+          <Property Name="EstSaisonnier" Type="bit" />
+          <Property Name="PoidsArticle" Type="smallint" />
+          <Property Name="GenCode" Type="varchar" MaxLength="50" />
+          <Property Name="DateSuppression" Type="datetime" />
+          <Property Name="ID_MotifSuppression" Type="int" />
+          <Property Name="ImprimerEtiquette" Type="bit" />
+          <Property Name="Sexe" Type="varchar" MaxLength="1" />
+          <Property Name="ID_Activite" Type="int" />
+          <Property Name="ID_Gamme" Type="int" />
+          <Property Name="ID_GrilleAchat" Type="int" />
+          <Property Name="ID_CoefficientDepreciation" Type="int" />
+          <Property Name="ID_ClasseArticle" Type="int" />
+          <Property Name="ID_Forme" Type="int" />
+          <Property Name="ID_Matiere" Type="int" />
+          <Property Name="ID_Couleur" Type="int" />
+          <Property Name="ID_Griffe" Type="int" />
+          <Property Name="ID_Boite" Type="int" />
+          <Property Name="ID_Style" Type="int" />
+          <Property Name="ID_Aspect" Type="int" />
+          <Property Name="ID_Fournisseur" Type="int" />
+          <Property Name="ID_AdresseFabrication" Type="int" />
+          <Property Name="ID_AdresseFacturation" Type="int" />
+          <Property Name="Modele" Type="varchar" MaxLength="50" />
+          <Property Name="ReferenceFournisseur" Type="varchar" MaxLength="50" />
+          <Property Name="ReferenceAgentFournisseur" Type="varchar" MaxLength="50" />
+          <Property Name="ReferenceMaison" Type="varchar" MaxLength="50" />
+          <Property Name="DatePremiereReception" Type="datetime" />
+          <Property Name="AEteReceptionneAuMoinsUneFois" Type="bit" />
+          <Property Name="DateDerniereRecepetion" Type="datetime" />
+          <Property Name="DureeGarantie" Type="smallint" />
+          <Property Name="PoidsEmballage" Type="smallint" />
+          <Property Name="ID_GroupementAchat" Type="int" />
+          <Property Name="ID_UniteGestionAchat" Type="int" />
+          <Property Name="ID_UniteGestionStock" Type="int" />
+          <Property Name="QteUniteStock" Type="int" />
+          <Property Name="QteLot" Type="int" />
+          <Property Name="Guelte" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="EstExprimePourcentageGuelte" Type="bit" />
+          <Property Name="QtePointConcours" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="EstSaisieRapide" Type="bit" />
+          <Property Name="ID_NouvelArticle" Type="int" />
+          <Property Name="ID_AncienArticle" Type="int" />
+          <Property Name="InverserGamme" Type="bit" Nullable="false" />
+          <Property Name="ID_DernierUtilisateur" Type="int" Nullable="false" />
+          <Property Name="DateCreation" Type="datetime" Nullable="false" />
+          <Property Name="DateModification" Type="datetime" />
+          <Property Name="RowVersion" Type="int" />
+          <Property Name="ID_ReferenceMaison" Type="int" />
+          <Property Name="EstPhotoConforme" Type="bit" />
+          <Property Name="EstRetourSaisonnier" Type="bit" />
+        </EntityType>
+        <Association Name="FK_ART_Article_ART_AncienArticle">
+          <End Role="ART_Article" Type="Self.ART_Article" Multiplicity="0..1" />
+          <End Role="ART_Article1" Type="Self.ART_Article" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ART_Article">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ART_Article1">
+              <PropertyRef Name="ID_AncienArticle" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ART_Article_ART_NouveauArticle">
+          <End Role="ART_Article" Type="Self.ART_Article" Multiplicity="0..1" />
+          <End Role="ART_Article1" Type="Self.ART_Article" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ART_Article">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ART_Article1">
+              <PropertyRef Name="ID_NouvelArticle" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DISTRI_DEVModelStoreContainer">
+          <EntitySet Name="ART_Article" EntityType="Self.ART_Article" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ART_Article_ART_AncienArticle" Association="Self.FK_ART_Article_ART_AncienArticle">
+            <End Role="ART_Article" EntitySet="ART_Article" />
+            <End Role="ART_Article1" EntitySet="ART_Article" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ART_Article_ART_NouveauArticle" Association="Self.FK_ART_Article_ART_NouveauArticle">
+            <End Role="ART_Article" EntitySet="ART_Article" />
+            <End Role="ART_Article1" EntitySet="ART_Article" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DISTRI_DEVModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ART_Article">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Saison" Type="Int32" />
+          <Property Name="ID_Rayon" Type="Int32" />
+          <Property Name="ID_Famille" Type="Int32" />
+          <Property Name="ID_SousFamille" Type="Int32" />
+          <Property Name="CodeArticle" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="AncienCodeArticle" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CodeIDEP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Libelle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LibelleCourt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EstSaisonnier" Type="Boolean" />
+          <Property Name="PoidsArticle" Type="Int16" />
+          <Property Name="GenCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateSuppression" Type="DateTime" Precision="3" />
+          <Property Name="ID_MotifSuppression" Type="Int32" />
+          <Property Name="ImprimerEtiquette" Type="Boolean" />
+          <Property Name="Sexe" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Activite" Type="Int32" />
+          <Property Name="ID_Gamme" Type="Int32" />
+          <Property Name="ID_GrilleAchat" Type="Int32" />
+          <Property Name="ID_CoefficientDepreciation" Type="Int32" />
+          <Property Name="ID_ClasseArticle" Type="Int32" />
+          <Property Name="ID_Forme" Type="Int32" />
+          <Property Name="ID_Matiere" Type="Int32" />
+          <Property Name="ID_Couleur" Type="Int32" />
+          <Property Name="ID_Griffe" Type="Int32" />
+          <Property Name="ID_Boite" Type="Int32" />
+          <Property Name="ID_Style" Type="Int32" />
+          <Property Name="ID_Aspect" Type="Int32" />
+          <Property Name="ID_Fournisseur" Type="Int32" />
+          <Property Name="ID_AdresseFabrication" Type="Int32" />
+          <Property Name="ID_AdresseFacturation" Type="Int32" />
+          <Property Name="Modele" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReferenceFournisseur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReferenceAgentFournisseur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReferenceMaison" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DatePremiereReception" Type="DateTime" Precision="3" />
+          <Property Name="AEteReceptionneAuMoinsUneFois" Type="Boolean" />
+          <Property Name="DateDerniereRecepetion" Type="DateTime" Precision="3" />
+          <Property Name="DureeGarantie" Type="Int16" />
+          <Property Name="PoidsEmballage" Type="Int16" />
+          <Property Name="ID_GroupementAchat" Type="Int32" />
+          <Property Name="ID_UniteGestionAchat" Type="Int32" />
+          <Property Name="ID_UniteGestionStock" Type="Int32" />
+          <Property Name="QteUniteStock" Type="Int32" />
+          <Property Name="QteLot" Type="Int32" />
+          <Property Name="Guelte" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="EstExprimePourcentageGuelte" Type="Boolean" />
+          <Property Name="QtePointConcours" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="EstSaisieRapide" Type="Boolean" />
+          <Property Name="ID_NouvelArticle" Type="Int32" />
+          <Property Name="ID_AncienArticle" Type="Int32" />
+          <Property Name="InverserGamme" Type="Boolean" Nullable="false" />
+          <Property Name="ID_DernierUtilisateur" Type="Int32" Nullable="false" />
+          <Property Name="DateCreation" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateModification" Type="DateTime" Precision="3" />
+          <Property Name="RowVersion" Type="Int32" />
+          <Property Name="ID_ReferenceMaison" Type="Int32" />
+          <Property Name="EstPhotoConforme" Type="Boolean" />
+          <Property Name="EstRetourSaisonnier" Type="Boolean" />
+          <NavigationProperty Name="ART_Article1" Relationship="Self.FK_ART_Article_ART_AncienArticle" FromRole="ART_Article" ToRole="ART_Article1" />
+          <NavigationProperty Name="ART_Article2" Relationship="Self.FK_ART_Article_ART_AncienArticle" FromRole="ART_Article1" ToRole="ART_Article" />
+          <NavigationProperty Name="ART_Article11" Relationship="Self.FK_ART_Article_ART_NouveauArticle" FromRole="ART_Article" ToRole="ART_Article1" />
+          <NavigationProperty Name="ART_Article3" Relationship="Self.FK_ART_Article_ART_NouveauArticle" FromRole="ART_Article1" ToRole="ART_Article" />
+        </EntityType>
+        <Association Name="FK_ART_Article_ART_AncienArticle">
+          <End Role="ART_Article" Type="Self.ART_Article" Multiplicity="0..1" />
+          <End Role="ART_Article1" Type="Self.ART_Article" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ART_Article">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ART_Article1">
+              <PropertyRef Name="ID_AncienArticle" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ART_Article_ART_NouveauArticle">
+          <End Role="ART_Article" Type="Self.ART_Article" Multiplicity="0..1" />
+          <End Role="ART_Article1" Type="Self.ART_Article" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ART_Article">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ART_Article1">
+              <PropertyRef Name="ID_NouvelArticle" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DISTRI_DEVEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ART_Article" EntityType="Self.ART_Article" />
+          <AssociationSet Name="FK_ART_Article_ART_AncienArticle" Association="Self.FK_ART_Article_ART_AncienArticle">
+            <End Role="ART_Article" EntitySet="ART_Article" />
+            <End Role="ART_Article1" EntitySet="ART_Article" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ART_Article_ART_NouveauArticle" Association="Self.FK_ART_Article_ART_NouveauArticle">
+            <End Role="ART_Article" EntitySet="ART_Article" />
+            <End Role="ART_Article1" EntitySet="ART_Article" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DISTRI_DEVModelStoreContainer" CdmEntityContainer="DISTRI_DEVEntities">
+          <EntitySetMapping Name="ART_Article">
+            <EntityTypeMapping TypeName="DISTRI_DEVModel.ART_Article">
+              <MappingFragment StoreEntitySet="ART_Article">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_Saison" ColumnName="ID_Saison" />
+                <ScalarProperty Name="ID_Rayon" ColumnName="ID_Rayon" />
+                <ScalarProperty Name="ID_Famille" ColumnName="ID_Famille" />
+                <ScalarProperty Name="ID_SousFamille" ColumnName="ID_SousFamille" />
+                <ScalarProperty Name="CodeArticle" ColumnName="CodeArticle" />
+                <ScalarProperty Name="AncienCodeArticle" ColumnName="AncienCodeArticle" />
+                <ScalarProperty Name="CodeIDEP" ColumnName="CodeIDEP" />
+                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+                <ScalarProperty Name="LibelleCourt" ColumnName="LibelleCourt" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="EstSaisonnier" ColumnName="EstSaisonnier" />
+                <ScalarProperty Name="PoidsArticle" ColumnName="PoidsArticle" />
+                <ScalarProperty Name="GenCode" ColumnName="GenCode" />
+                <ScalarProperty Name="DateSuppression" ColumnName="DateSuppression" />
+                <ScalarProperty Name="ID_MotifSuppression" ColumnName="ID_MotifSuppression" />
+                <ScalarProperty Name="ImprimerEtiquette" ColumnName="ImprimerEtiquette" />
+                <ScalarProperty Name="Sexe" ColumnName="Sexe" />
+                <ScalarProperty Name="ID_Activite" ColumnName="ID_Activite" />
+                <ScalarProperty Name="ID_Gamme" ColumnName="ID_Gamme" />
+                <ScalarProperty Name="ID_GrilleAchat" ColumnName="ID_GrilleAchat" />
+                <ScalarProperty Name="ID_CoefficientDepreciation" ColumnName="ID_CoefficientDepreciation" />
+                <ScalarProperty Name="ID_ClasseArticle" ColumnName="ID_ClasseArticle" />
+                <ScalarProperty Name="ID_Forme" ColumnName="ID_Forme" />
+                <ScalarProperty Name="ID_Matiere" ColumnName="ID_Matiere" />
+                <ScalarProperty Name="ID_Couleur" ColumnName="ID_Couleur" />
+                <ScalarProperty Name="ID_Griffe" ColumnName="ID_Griffe" />
+                <ScalarProperty Name="ID_Boite" ColumnName="ID_Boite" />
+                <ScalarProperty Name="ID_Style" ColumnName="ID_Style" />
+                <ScalarProperty Name="ID_Aspect" ColumnName="ID_Aspect" />
+                <ScalarProperty Name="ID_Fournisseur" ColumnName="ID_Fournisseur" />
+                <ScalarProperty Name="ID_AdresseFabrication" ColumnName="ID_AdresseFabrication" />
+                <ScalarProperty Name="ID_AdresseFacturation" ColumnName="ID_AdresseFacturation" />
+                <ScalarProperty Name="Modele" ColumnName="Modele" />
+                <ScalarProperty Name="ReferenceFournisseur" ColumnName="ReferenceFournisseur" />
+                <ScalarProperty Name="ReferenceAgentFournisseur" ColumnName="ReferenceAgentFournisseur" />
+                <ScalarProperty Name="ReferenceMaison" ColumnName="ReferenceMaison" />
+                <ScalarProperty Name="DatePremiereReception" ColumnName="DatePremiereReception" />
+                <ScalarProperty Name="AEteReceptionneAuMoinsUneFois" ColumnName="AEteReceptionneAuMoinsUneFois" />
+                <ScalarProperty Name="DateDerniereRecepetion" ColumnName="DateDerniereRecepetion" />
+                <ScalarProperty Name="DureeGarantie" ColumnName="DureeGarantie" />
+                <ScalarProperty Name="PoidsEmballage" ColumnName="PoidsEmballage" />
+                <ScalarProperty Name="ID_GroupementAchat" ColumnName="ID_GroupementAchat" />
+                <ScalarProperty Name="ID_UniteGestionAchat" ColumnName="ID_UniteGestionAchat" />
+                <ScalarProperty Name="ID_UniteGestionStock" ColumnName="ID_UniteGestionStock" />
+                <ScalarProperty Name="QteUniteStock" ColumnName="QteUniteStock" />
+                <ScalarProperty Name="QteLot" ColumnName="QteLot" />
+                <ScalarProperty Name="Guelte" ColumnName="Guelte" />
+                <ScalarProperty Name="EstExprimePourcentageGuelte" ColumnName="EstExprimePourcentageGuelte" />
+                <ScalarProperty Name="QtePointConcours" ColumnName="QtePointConcours" />
+                <ScalarProperty Name="EstSaisieRapide" ColumnName="EstSaisieRapide" />
+                <ScalarProperty Name="ID_NouvelArticle" ColumnName="ID_NouvelArticle" />
+                <ScalarProperty Name="ID_AncienArticle" ColumnName="ID_AncienArticle" />
+                <ScalarProperty Name="InverserGamme" ColumnName="InverserGamme" />
+                <ScalarProperty Name="ID_DernierUtilisateur" ColumnName="ID_DernierUtilisateur" />
+                <ScalarProperty Name="DateCreation" ColumnName="DateCreation" />
+                <ScalarProperty Name="DateModification" ColumnName="DateModification" />
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+                <ScalarProperty Name="ID_ReferenceMaison" ColumnName="ID_ReferenceMaison" />
+                <ScalarProperty Name="EstPhotoConforme" ColumnName="EstPhotoConforme" />
+                <ScalarProperty Name="EstRetourSaisonnier" ColumnName="EstRetourSaisonnier" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

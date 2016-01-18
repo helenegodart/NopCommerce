@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
+using System.Xml.Linq;
 
 namespace ProgrammeEntity
 {
@@ -12,7 +11,6 @@ namespace ProgrammeEntity
         public static void ConnectionSql()
         {
             SqlConnection conn = new SqlConnection();
-            //    conn.ConnectionString = "integrated security=SSPI;server=Neril-PC;" + "persist security info=False;initial catalog=";
             conn.ConnectionString = " Data Source = NERIL-PC; Initial Catalog = DISTRI_DEV; Integrated Security = True";
             try
             {
@@ -33,9 +31,6 @@ namespace ProgrammeEntity
         {
             DISTRI_DEVEntities db = new DISTRI_DEVEntities();
 
-            /*     var empQuery = from table in db.ART_Article
-                                where table.ID == codeArticle
-                                select table;*/
 
             var empQuery = from article in db.ART_Article
                            from tarif in db.TRF_Tarif
@@ -45,7 +40,7 @@ namespace ProgrammeEntity
                            from couleurType in db.ART_CouleurType
                            from grille in db.ART_Grille
 
-                           where article.ID == codeArticle
+                           where article.CodeArticle == codeArticle.ToString()
                            where tarif.ID_Article == article.ID
                            where rayon.ID == article.ID_Rayon
                            where famille.ID == article.ID_Famille
@@ -61,44 +56,49 @@ namespace ProgrammeEntity
 
             Console.WriteLine("Il y a "+empQuery.Count()+" ligne");
 
-            var num = empQuery.First();
-            //       foreach (var num in empQuery)
-            //       {
-            String resultat =  string.Format("{0} : {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9} \n",
-                    num.article.ID,
-                    num.article.CodeArticle,
-                    num.article.Libelle,
-                    num.article.Description,
-                    num.article.ID_Fournisseur,
-                    num.article.QteUniteStock,
+            try
+            {
+                var num = empQuery.First();
 
-                    num.tarif.PrixTTC,
-                    num.tarif.DateCreation,
-                    num.grille.Libelle,
-                    num.couleurType.Libelle
-                    );
+                String resultat = string.Format("{0} : {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10} \n",
+                        num.article.ID,
+                        num.article.CodeArticle,
+                        num.article.Libelle,
+                        num.article.Description,
+                        num.article.ID_Fournisseur,
+                        num.article.QteUniteStock,
+                        num.article.PoidsArticle,
 
-                /*
-                Console.WriteLine(num.article.ID);
-                Console.WriteLine(num.article.CodeArticle);
-                Console.WriteLine(num.article.Libelle);
-                Console.WriteLine(num.article.Description);
-                Console.WriteLine(num.article.ID_Fournisseur);
-                Console.WriteLine(num.article.QteUniteStock);
+                        num.tarif.PrixTTC,
+                        num.tarif.DateCreation,
+                        num.grille.Libelle,
+                        num.couleurType.Libelle
+                        );
 
-                Console.WriteLine(num.tarif.PrixTTC);
-                Console.WriteLine(num.tarif.DateCreation);
+                XElement element = new XElement("requete",
+                            new XElement("ID", num.article.ID),
+                            new XElement("CodeArticle", num.article.CodeArticle),
+                            new XElement("Libelle", num.article.Libelle),
+                            new XElement("Description", num.article.Description),
+                            new XElement("ID_Fournisseur", num.article.ID_Fournisseur),
+                            new XElement("QteUniteStock", num.article.QteUniteStock),
+                            new XElement("PoidsArticle", num.article.PoidsArticle),
 
-                Console.WriteLine(num.grille.Libelle);
 
-                Console.WriteLine(num.couleurType.Libelle);
-                */
+                            new XElement("PrixTTC", num.tarif.PrixTTC),
+                            new XElement("DateCreation", num.tarif.DateCreation),
+                            new XElement("grille_Libelle", num.grille.Libelle),
+                            new XElement("couleurType_Libelle", num.couleurType.Libelle)
+                            );
 
-       //         Console.WriteLine(resultat);
-        //        Console.ReadLine();
-                
-       //     }
-            return resultat;
+
+
+                return element.ToString();
+            }
+            catch
+            {
+                return "Pas d'article pour ce numéro";
+            }
         }
 
 
@@ -108,7 +108,8 @@ namespace ProgrammeEntity
         static void Main(string[] args)
         {
 
-            Console.WriteLine(Commandes.demandeArticle(241));
+            Console.WriteLine(Commandes.demandeArticle(7005025));
+
             Console.ReadLine();
 
         }

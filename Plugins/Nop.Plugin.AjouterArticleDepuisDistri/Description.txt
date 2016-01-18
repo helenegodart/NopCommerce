@@ -1,8 +1,8 @@
 ﻿Group: Misc
-FriendlyName: Nouvel article depuis Distri
+FriendlyName: Must be assigned to customer role
 SystemName: AjouterArticleDepuisDistri
 Version: 1.00
 SupportedVersions: 3.60
 Author: GFI
 DisplayOrder: 1
-FileName: Nop.Plugin.AjouterArticleDepuisDistri.dll
+FileName: Nop.Plugin.AjoutArticleDepuisDistri.dll

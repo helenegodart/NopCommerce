@@ -13,7 +13,7 @@ namespace WcfServiceLibrary1
     {
         public string DemandeArticle(int codeArticle)
         {
-            return string.Format(ProgrammeEntity.Commandes.demandeArticle(codeArticle));
+            return string.Format(Commandes.demandeArticle(codeArticle));
         }
 
         public string GetData(int value)

@@ -4,12 +4,16 @@ using System.Xml;
 using Nop.Admin.Models.Catalog;
 using Nop.Admin.Extensions;
 using Nop.Services.Catalog;
+using Nop.Services.Seo;
 
 namespace Nop.Plugin.AjouterArticleDepuisDistri
 {
     public class creationArticle : BasePlugin
     {
         string IDarticle; //Changer quand je saurai ce que je vais recevoir de Yann et d'où.
+        private IProductService _productService;
+        private IUrlRecordService _urlRecordService;
+
         public void creerArticle(string id)
         {
             IDarticle = id;
@@ -32,7 +36,11 @@ namespace Nop.Plugin.AjouterArticleDepuisDistri
             var product = produit.ToEntity();
             product.CreatedOnUtc = DateTime.UtcNow;
             product.UpdatedOnUtc = DateTime.UtcNow;
-            
+            _productService.InsertProduct(product);
+            //search engine name
+            produit.SeName = product.ValidateSeName(produit.SeName, product.Name, true);
+            _urlRecordService.SaveSlug(product, produit.SeName, 0);
+
         }
     }
 }

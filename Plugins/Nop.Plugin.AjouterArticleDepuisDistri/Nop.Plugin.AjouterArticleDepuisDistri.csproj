@@ -101,10 +101,6 @@
       <Project>{152c761a-dd2e-4c1f-af89-dfb2547a3bca}</Project>
       <Name>Nop.Admin</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\WcfServiceLibrary\ClientWCF\ClientWCF\ClientWCF.csproj">
-      <Project>{2a195c0f-9762-4bbf-8bc0-972989218e9b}</Project>
-      <Name>ClientWCF</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\WcfServiceLibrary\WcfServiceLibrary\WcfServiceLibrary.csproj">
       <Project>{ff85ac6f-e4bc-4721-a4ec-69cdc5acdb6b}</Project>
       <Name>WcfServiceLibrary</Name>

@@ -46,7 +46,7 @@
     </Reference>
     <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
@@ -73,7 +73,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\creationArticleController.cs" />
     <Compile Include="creationArticle.cs" />
+    <Compile Include="Models\creationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RouteProvider.cs" />
     <Compile Include="Service References\ServiceReference1\Reference.cs">
@@ -99,6 +101,10 @@
       <Project>{152c761a-dd2e-4c1f-af89-dfb2547a3bca}</Project>
       <Name>Nop.Admin</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\WcfServiceLibrary\ClientWCF\ClientWCF\ClientWCF.csproj">
+      <Project>{2a195c0f-9762-4bbf-8bc0-972989218e9b}</Project>
+      <Name>ClientWCF</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\WcfServiceLibrary\WcfServiceLibrary\WcfServiceLibrary.csproj">
       <Project>{ff85ac6f-e4bc-4721-a4ec-69cdc5acdb6b}</Project>
       <Name>WcfServiceLibrary</Name>
@@ -123,6 +129,9 @@
     <None Include="Service References\ServiceReference1\WcfServiceLibrary1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Views\AjouterArticleDepuisDistri\Configure.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ServiceReference1\" />
@@ -139,6 +148,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

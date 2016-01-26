@@ -39,6 +39,7 @@ namespace ProgrammeEntity
                            from couleur in db.ART_Couleur
                            from couleurType in db.ART_CouleurType
                            from grille in db.ART_Grille
+                           from photo in db.PAR_Photo
 
                            where article.CodeArticle == codeArticle.ToString()
                            where tarif.ID_Article == article.ID
@@ -47,9 +48,10 @@ namespace ProgrammeEntity
                            where couleur.ID == article.ID_Couleur
                            where couleurType.ID == couleur.ID
                            where grille.ID == article.ID_GrilleAchat
+                           where photo.ID_Objet == article.ID
                            orderby tarif.DateCreation descending
 
-                           select new{article,tarif,rayon,famille,couleur,couleurType,grille};
+                           select new{article,tarif,rayon,famille,couleur,couleurType,grille,photo};
                                 
 
 
@@ -88,16 +90,18 @@ namespace ProgrammeEntity
                             new XElement("PrixTTC", num.tarif.PrixTTC),
                             new XElement("DateCreation", num.tarif.DateCreation),
                             new XElement("grille_Libelle", num.grille.Libelle),
-                            new XElement("couleurType_Libelle", num.couleurType.Libelle)
+                            new XElement("famille_Libelle", num.famille.Libelle),
+                            new XElement("couleurType_Libelle", num.couleurType.Libelle),
+                            new XElement("Filemane", num.photo.Filename)
                             );
 
 
 
                 return element.ToString();
             }
-            catch
+            catch(Exception e)
             {
-                return "Pas d'article pour ce numéro";
+                return e.ToString() + "Pas d'article pour ce numéro";
             }
         }
 

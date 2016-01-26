@@ -10,7 +10,7 @@
         <EntityTypeShape EntityType="DISTRI_DEVModel.ART_Famille" Width="1.5" PointX="3" PointY="24.625" IsExpanded="true" />
         <EntityTypeShape EntityType="DISTRI_DEVModel.ART_Grille" Width="1.5" PointX="3" PointY="18.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DISTRI_DEVModel.ART_Rayon" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DISTRI_DEVModel.PAR_Photo" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DISTRI_DEVModel.PAR_Photo" Width="1.5" PointX="0.875" PointY="3.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DISTRI_DEVModel.TRF_Tarif" Width="1.5" PointX="7.5" PointY="15" IsExpanded="true" />
         <AssociationConnector Association="DISTRI_DEVModel.FK_ART_Article_ART_AncienArticle" ManuallyRouted="false" />
         <AssociationConnector Association="DISTRI_DEVModel.FK_ART_Article_ART_Famille" ManuallyRouted="false" />

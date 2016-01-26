@@ -6,13 +6,13 @@ using System.ServiceModel;
 using System.ServiceModel.Description;
 
 
-namespace Client
+namespace ClientWCF
 {
     class Program
     {
         //Pour tester le service
         static void Main(string[] args)
-        {        
+        {
             Console.WriteLine(ServiceDemandeArticle(7000243));
             Console.ReadLine();
 
@@ -20,11 +20,11 @@ namespace Client
         static string ServiceDemandeArticle(int id)
         {
             try
-            { 
+            {
                 ClientWCF.ServiceReference.Service1Client client = new ClientWCF.ServiceReference.Service1Client();
                 return client.DemandeArticle(id);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return e.ToString();
             }

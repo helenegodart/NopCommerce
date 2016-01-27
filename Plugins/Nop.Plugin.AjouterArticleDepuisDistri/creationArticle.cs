@@ -33,32 +33,13 @@ namespace Nop.Plugin.AjouterArticleDepuisDistri
             produit.Price = decimal.Parse(xmlArticle.SelectSingleNode("//PrixTTC/text()").ToString());
             produit.Weight = decimal.Parse(xmlArticle.SelectSingleNode("//PoidsArticle/text()").ToString());
 
-            //Mises à jour dans le système de NopCommerce
-            _productService.InsertProduct(produit);
-            _urlRecordService.SaveSlug(produit, produit.ValidateSeName(produit.Name, produit.Name, true), 0);
-
-            //Mise à jour des catégories, à revoir
-            /*if (produit.ProductCategories == null)
-            {
-                //ensure that category exists
-                var category = _categoryService.GetCategoryById(produit.VendorId);
-                if (category != null)
-                {
-                    var productCategory = new ProductCategory
-                    {
-                        ProductId = produit.Id,
-                        CategoryId = category.Id,
-                        IsFeaturedProduct = false,
-                        DisplayOrder = 1
-                    };
-                    _categoryService.InsertProductCategory(productCategory);
-                }
-            }*/
-
-            //Mise à jour du fabricant
+            //Mise à jour du fabricant + vérification si marque existe ou pas
             var manufacturer = _manufacturerService.GetManufacturerById(produit.VendorId);
             if (manufacturer != null)
             {
+                //Mises à jour dans le système de NopCommerce
+                _productService.InsertProduct(produit);
+                _urlRecordService.SaveSlug(produit, produit.ValidateSeName(produit.Name, produit.Name, true), 0);
                 var productManufacturer = new ProductManufacturer
                 {
                     ProductId = produit.Id,
@@ -67,9 +48,30 @@ namespace Nop.Plugin.AjouterArticleDepuisDistri
                     DisplayOrder = 1
                 };
                 _manufacturerService.InsertProductManufacturer(productManufacturer);
+
+                //Mise à jour des catégories, à revoir
+                /*if (produit.ProductCategories == null)
+                {
+                    //ensure that category exists
+                    var category = _categoryService.GetCategoryById(produit.VendorId);
+                    if (category != null)
+                    {
+                        var productCategory = new ProductCategory
+                        {
+                            ProductId = produit.Id,
+                            CategoryId = category.Id,
+                            IsFeaturedProduct = false,
+                            DisplayOrder = 1
+                        };
+                        _categoryService.InsertProductCategory(productCategory);
+                    }
+                }*/
+
+                //Mise à jour du systère de réductions
+                _productService.UpdateHasTierPricesProperty(produit);
+                _productService.UpdateHasDiscountsApplied(produit);
             }
-            _productService.UpdateHasTierPricesProperty(produit);
-            _productService.UpdateHasDiscountsApplied(produit);
+   
         }
     }
 }

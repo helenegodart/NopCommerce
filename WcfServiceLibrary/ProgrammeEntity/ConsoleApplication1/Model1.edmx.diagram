@@ -23,6 +23,8 @@
         <EntityTypeShape EntityType="DISTRI_DEVModel.ART_Couleur" Width="1.5" PointX="3" PointY="15.25" />
         <AssociationConnector Association="DISTRI_DEVModel.FK_ART_Article_ART_Couleur" />
         <AssociationConnector Association="DISTRI_DEVModel.FK_ART_Couleur_ART_CouleurType" />
+        <EntityTypeShape EntityType="DISTRI_DEVModel.ART_Griffe" Width="1.5" PointX="3.375" PointY="1" />
+        <AssociationConnector Association="DISTRI_DEVModel.FK_ART_Article_ART_Griffe" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

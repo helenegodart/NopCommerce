@@ -40,6 +40,7 @@ namespace ProgrammeEntity
                            from couleurType in db.ART_CouleurType
                            from grille in db.ART_Grille
                            from photo in db.PAR_Photo
+                           from griffe in db.ART_Griffe
 
                            where article.CodeArticle == codeArticle.ToString()
                            where tarif.ID_Article == article.ID
@@ -47,7 +48,7 @@ namespace ProgrammeEntity
                            where famille.ID == article.ID_Famille
                            where couleur.ID == article.ID_Couleur
                            where couleurType.ID == couleur.ID
-                           where grille.ID == article.ID_GrilleAchat
+                           where article.ID_GrilleAchat == grille.ID
                            where photo.ID_Objet == article.ID
                            orderby tarif.DateCreation descending
 
@@ -105,6 +106,42 @@ namespace ProgrammeEntity
             }
         }
 
+        public static string demandeMarque(int codeMarque)
+        {
+            DISTRI_DEVEntities db = new DISTRI_DEVEntities();
+
+
+            var empQuery = from griffe in db.ART_Griffe
+
+                           where griffe.ID == codeMarque
+                           select new { griffe };
+
+
+
+
+            Console.WriteLine("Il y a " + empQuery.Count() + " ligne");
+
+            try
+            {
+                var num = empQuery.First();
+
+
+                XElement element = new XElement("requete",
+
+                            new XElement("griffe_ID", num.griffe.ID),
+                            new XElement("griffe_Libelle", num.griffe.Libelle)
+                            );
+
+
+
+                return element.ToString();
+            }
+            catch (Exception e)
+            {
+                return e.ToString();
+            }
+        }
+
 
     }
     class MainClass
@@ -112,7 +149,8 @@ namespace ProgrammeEntity
         static void Main(string[] args)
         {
 
-            Console.WriteLine(Commandes.demandeArticle(7005025));
+           // Console.WriteLine(Commandes.demandeArticle(7005025));
+            Console.WriteLine(Commandes.demandeMarque(12));
 
             Console.ReadLine();
 

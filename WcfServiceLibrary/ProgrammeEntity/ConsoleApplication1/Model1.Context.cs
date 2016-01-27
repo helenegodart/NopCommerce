@@ -33,5 +33,6 @@ namespace ProgrammeEntity
         public virtual DbSet<PAR_Photo> PAR_Photo { get; set; }
         public virtual DbSet<TRF_Tarif> TRF_Tarif { get; set; }
         public virtual DbSet<ART_Couleur> ART_Couleur { get; set; }
+        public virtual DbSet<ART_Griffe> ART_Griffe { get; set; }
     }
 }

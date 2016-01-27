@@ -108,6 +108,18 @@
           <Property Name="DateModification" Type="datetime" />
           <Property Name="RowVersion" Type="int" />
         </EntityType>
+        <EntityType Name="ART_Griffe">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Libelle" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="AppartientADuo" Type="bit" />
+          <Property Name="ID_DernierUtilisateur" Type="int" Nullable="false" />
+          <Property Name="DateCreation" Type="datetime" Nullable="false" />
+          <Property Name="DateModification" Type="datetime" />
+          <Property Name="RowVersion" Type="int" />
+        </EntityType>
         <EntityType Name="ART_Grille">
           <Key>
             <PropertyRef Name="ID" />
@@ -225,6 +237,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ART_Article_ART_Griffe">
+          <End Role="ART_Griffe" Type="Self.ART_Griffe" Multiplicity="0..1" />
+          <End Role="ART_Article" Type="Self.ART_Article" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ART_Griffe">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ART_Article">
+              <PropertyRef Name="ID_Griffe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ART_Article_ART_GrilleAchat">
           <End Role="ART_Grille" Type="Self.ART_Grille" Multiplicity="0..1" />
           <End Role="ART_Article" Type="Self.ART_Article" Multiplicity="*" />
@@ -314,6 +338,7 @@
           <EntitySet Name="ART_Couleur" EntityType="Self.ART_Couleur" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ART_CouleurType" EntityType="Self.ART_CouleurType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ART_Famille" EntityType="Self.ART_Famille" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ART_Griffe" EntityType="Self.ART_Griffe" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ART_Grille" EntityType="Self.ART_Grille" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ART_Rayon" EntityType="Self.ART_Rayon" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PAR_Photo" EntityType="Self.PAR_Photo" Schema="dbo" store:Type="Tables" />
@@ -328,6 +353,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_ART_Article_ART_Famille" Association="Self.FK_ART_Article_ART_Famille">
             <End Role="ART_Famille" EntitySet="ART_Famille" />
+            <End Role="ART_Article" EntitySet="ART_Article" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ART_Article_ART_Griffe" Association="Self.FK_ART_Article_ART_Griffe">
+            <End Role="ART_Griffe" EntitySet="ART_Griffe" />
             <End Role="ART_Article" EntitySet="ART_Article" />
           </AssociationSet>
           <AssociationSet Name="FK_ART_Article_ART_GrilleAchat" Association="Self.FK_ART_Article_ART_GrilleAchat">
@@ -437,6 +466,7 @@
           <NavigationProperty Name="ART_Rayon" Relationship="Self.FK_ART_Article_ART_Rayon" FromRole="ART_Article" ToRole="ART_Rayon" />
           <NavigationProperty Name="TRF_Tarif" Relationship="Self.FK_TRF_Tarif_ART_Article" FromRole="ART_Article" ToRole="TRF_Tarif" />
           <NavigationProperty Name="ART_Couleur" Relationship="DISTRI_DEVModel.FK_ART_Article_ART_Couleur" FromRole="ART_Article" ToRole="ART_Couleur" />
+          <NavigationProperty Name="ART_Griffe" Relationship="DISTRI_DEVModel.FK_ART_Article_ART_Griffe" FromRole="ART_Article" ToRole="ART_Griffe" />
         </EntityType>
         <EntityType Name="ART_CouleurType">
           <Key>
@@ -698,6 +728,11 @@
             <End Role="ART_CouleurType" EntitySet="ART_CouleurType" />
             <End Role="ART_Couleur" EntitySet="ART_Couleur" />
           </AssociationSet>
+          <EntitySet Name="ART_Griffe" EntityType="DISTRI_DEVModel.ART_Griffe" />
+          <AssociationSet Name="FK_ART_Article_ART_Griffe" Association="DISTRI_DEVModel.FK_ART_Article_ART_Griffe">
+            <End Role="ART_Griffe" EntitySet="ART_Griffe" />
+            <End Role="ART_Article" EntitySet="ART_Article" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="ART_Couleur">
           <Key>
@@ -734,6 +769,31 @@
             </Principal>
             <Dependent Role="ART_Couleur">
               <PropertyRef Name="ID_CouleurType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ART_Griffe">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Libelle" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AppartientADuo" Type="Boolean" />
+          <Property Name="ID_DernierUtilisateur" Type="Int32" Nullable="false" />
+          <Property Name="DateCreation" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateModification" Type="DateTime" Precision="3" />
+          <Property Name="RowVersion" Type="Int32" />
+          <NavigationProperty Name="ART_Article" Relationship="DISTRI_DEVModel.FK_ART_Article_ART_Griffe" FromRole="ART_Griffe" ToRole="ART_Article" />
+        </EntityType>
+        <Association Name="FK_ART_Article_ART_Griffe">
+          <End Type="DISTRI_DEVModel.ART_Griffe" Role="ART_Griffe" Multiplicity="0..1" />
+          <End Type="DISTRI_DEVModel.ART_Article" Role="ART_Article" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ART_Griffe">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ART_Article">
+              <PropertyRef Name="ID_Griffe" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -931,6 +991,19 @@
                 <ScalarProperty Name="ID_DernierUtilisateur" ColumnName="ID_DernierUtilisateur" />
                 <ScalarProperty Name="Libelle" ColumnName="Libelle" />
                 <ScalarProperty Name="ID_CouleurType" ColumnName="ID_CouleurType" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ART_Griffe">
+            <EntityTypeMapping TypeName="DISTRI_DEVModel.ART_Griffe">
+              <MappingFragment StoreEntitySet="ART_Griffe">
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+                <ScalarProperty Name="DateModification" ColumnName="DateModification" />
+                <ScalarProperty Name="DateCreation" ColumnName="DateCreation" />
+                <ScalarProperty Name="ID_DernierUtilisateur" ColumnName="ID_DernierUtilisateur" />
+                <ScalarProperty Name="AppartientADuo" ColumnName="AppartientADuo" />
+                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

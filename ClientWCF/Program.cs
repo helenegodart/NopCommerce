@@ -14,6 +14,7 @@ namespace ClientWCF
         static void Main(string[] args)
         {
             Console.WriteLine(ServiceDemandeArticle(7000243));
+            Console.WriteLine(ServiceDemandeMarque(7));
             Console.ReadLine();
 
         }
@@ -23,6 +24,19 @@ namespace ClientWCF
             {
                 ClientWCF.ServiceReference.Service1Client client = new ClientWCF.ServiceReference.Service1Client();
                 return client.DemandeArticle(id);
+            }
+            catch (Exception e)
+            {
+                return e.ToString();
+            }
+        }
+
+        static string ServiceDemandeMarque(int id)
+        {
+            try
+            {
+                ClientWCF.ServiceReference.Service1Client client = new ClientWCF.ServiceReference.Service1Client();
+                return client.DemandeMarque(id);
             }
             catch (Exception e)
             {

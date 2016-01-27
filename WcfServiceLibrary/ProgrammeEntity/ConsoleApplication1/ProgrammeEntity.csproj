@@ -67,6 +67,9 @@
     <Compile Include="ART_Famille.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="ART_Griffe.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="ART_Grille.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

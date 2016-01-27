@@ -96,5 +96,6 @@ namespace ProgrammeEntity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TRF_Tarif> TRF_Tarif { get; set; }
         public virtual ART_Couleur ART_Couleur { get; set; }
+        public virtual ART_Griffe ART_Griffe { get; set; }
     }
 }

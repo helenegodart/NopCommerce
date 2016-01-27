@@ -16,6 +16,11 @@ namespace WcfServiceLibrary1
             return string.Format(Commandes.demandeArticle(codeArticle));
         }
 
+        public string DemandeMarque(int codeMarque)
+        {
+            return string.Format(Commandes.demandeMarque(codeMarque));
+        }
+
         public string GetData(int value)
         {
             return string.Format("You entered: {0}", value);

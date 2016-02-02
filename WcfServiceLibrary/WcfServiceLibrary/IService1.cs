@@ -19,6 +19,9 @@ namespace WcfServiceLibrary1
         string DemandeArticle(int codeArticle);
 
         [OperationContract]
+        string DemandeMarque(int codeMarque);
+
+        [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
         // TODO: ajoutez vos opérations de service ici

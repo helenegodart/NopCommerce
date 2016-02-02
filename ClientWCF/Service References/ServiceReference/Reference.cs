@@ -90,6 +90,12 @@ namespace ClientWCF.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DemandeArticle", ReplyAction="http://tempuri.org/IService1/DemandeArticleResponse")]
         System.Threading.Tasks.Task<string> DemandeArticleAsync(int codeArticle);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DemandeMarque", ReplyAction="http://tempuri.org/IService1/DemandeMarqueResponse")]
+        string DemandeMarque(int codeMarque);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DemandeMarque", ReplyAction="http://tempuri.org/IService1/DemandeMarqueResponse")]
+        System.Threading.Tasks.Task<string> DemandeMarqueAsync(int codeMarque);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
         ClientWCF.ServiceReference.CompositeType GetDataUsingDataContract(ClientWCF.ServiceReference.CompositeType composite);
         
@@ -138,6 +144,14 @@ namespace ClientWCF.ServiceReference {
         
         public System.Threading.Tasks.Task<string> DemandeArticleAsync(int codeArticle) {
             return base.Channel.DemandeArticleAsync(codeArticle);
+        }
+        
+        public string DemandeMarque(int codeMarque) {
+            return base.Channel.DemandeMarque(codeMarque);
+        }
+        
+        public System.Threading.Tasks.Task<string> DemandeMarqueAsync(int codeMarque) {
+            return base.Channel.DemandeMarqueAsync(codeMarque);
         }
         
         public ClientWCF.ServiceReference.CompositeType GetDataUsingDataContract(ClientWCF.ServiceReference.CompositeType composite) {

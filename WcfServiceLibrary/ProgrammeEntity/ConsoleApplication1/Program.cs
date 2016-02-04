@@ -11,7 +11,7 @@ namespace ProgrammeEntity
         public static void ConnectionSql()
         {
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = " Data Source = NERIL-PC; Initial Catalog = DISTRI_DEV; Integrated Security = True";
+            conn.ConnectionString = " Data Source = SAMSUNG-PERSO; Initial Catalog = DISTRI_DEV; Integrated Security = True";
             try
             {
                 conn.Open();
@@ -50,9 +50,10 @@ namespace ProgrammeEntity
                            where couleurType.ID == couleur.ID
                            where article.ID_GrilleAchat == grille.ID
                            where photo.ID_Objet == article.ID
+                           where article.ID_Griffe == griffe.ID
                            orderby tarif.DateCreation descending
 
-                           select new{article,tarif,rayon,famille,couleur,couleurType,grille,photo};
+                           select new{article,tarif,rayon,famille,couleur,couleurType,grille,photo,griffe};
                                 
 
 
@@ -63,7 +64,7 @@ namespace ProgrammeEntity
             {
                 var num = empQuery.First();
 
-                String resultat = string.Format("{0} : {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10} \n",
+                String resultat = string.Format("{0} : {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11} \n",
                         num.article.ID,
                         num.article.CodeArticle,
                         num.article.Libelle,
@@ -75,7 +76,8 @@ namespace ProgrammeEntity
                         num.tarif.PrixTTC,
                         num.tarif.DateCreation,
                         num.grille.Libelle,
-                        num.couleurType.Libelle
+                        num.couleurType.Libelle,
+                        num.griffe.ID
                         );
 
                 XElement element = new XElement("requete",
@@ -93,7 +95,8 @@ namespace ProgrammeEntity
                             new XElement("grille_Libelle", num.grille.Libelle),
                             new XElement("famille_Libelle", num.famille.Libelle),
                             new XElement("couleurType_Libelle", num.couleurType.Libelle),
-                            new XElement("Filemane", num.photo.Filename)
+                            new XElement("Filemane", num.photo.Filename),
+                            new XElement("ID_Griffe", num.griffe.ID)
                             );
 
 

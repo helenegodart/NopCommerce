@@ -18,7 +18,7 @@ namespace Nop.Plugin.AjouterArticleDepuisDistri
         {
             //Récupération du produit dans la base
             ClientWCF.ServiceReference.Service1Client client = new ClientWCF.ServiceReference.Service1Client();
-            string article = client.DemandeArticle(idArticle); ;
+            string article = client.DemandeArticle(idArticle);
             XmlDocument xmlArticle = new XmlDocument();
             xmlArticle.LoadXml(article);
 
@@ -27,11 +27,19 @@ namespace Nop.Plugin.AjouterArticleDepuisDistri
             produit.Id= int.Parse(xmlArticle.SelectSingleNode("//ID/text()").ToString());
             produit.Name = xmlArticle.SelectSingleNode("//Libelle/text()").ToString();
             produit.FullDescription = xmlArticle.SelectSingleNode("//Description/text()").ToString();
-            produit.VendorId = int.Parse(xmlArticle.SelectSingleNode("//ID_Fournisseur/text()").ToString());
+            produit.VendorId = int.Parse(xmlArticle.SelectSingleNode("//ID_Griffe/text()").ToString());
             produit.Sku = xmlArticle.SelectSingleNode("//CodeArticle/text()").ToString();
             produit.StockQuantity = int.Parse(xmlArticle.SelectSingleNode("//QteUniteStock/text()").ToString());
             produit.Price = decimal.Parse(xmlArticle.SelectSingleNode("//PrixTTC/text()").ToString());
             produit.Weight = decimal.Parse(xmlArticle.SelectSingleNode("//PoidsArticle/text()").ToString());
+            produit.IsDownload = false;
+            produit.IsRecurring = false;
+            produit.IsRental = false;
+            produit.DisableWishlistButton = true;
+            //produit.ShortDescription
+            //produit.FullDescription
+            //produit.VisibleIndividually ?
+            //produit.Gtin ?
 
             //Mise à jour du fabricant + vérification si marque existe ou pas
             var manufacturer = _manufacturerService.GetManufacturerById(produit.VendorId);

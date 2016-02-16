@@ -1,5 +1,6 @@
 ﻿using Nop.Core.Domain.Vendors;
 using Nop.Core.Plugins;
+using Nop.Services.Common;
 using Nop.Services.Seo;
 using Nop.Services.Vendors;
 using System;
@@ -8,15 +9,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Web.Routing;
 
 namespace Nop.Plugin.AjouterMarqueDepuisDistri
 {
     public class creationMarque : BasePlugin
     {
-        private readonly IVendorService _vendorService;
-        private readonly IUrlRecordService _urlRecordService;
+        private static readonly IVendorService _vendorService;
+        private static readonly IUrlRecordService _urlRecordService;
 
-        public void creerMarque(int idMarque)
+        public static void creerMarque(int idMarque)
         {
             //Récupération de la marque dans Distri
             ClientWCF.ServiceReference.Service1Client client = new ClientWCF.ServiceReference.Service1Client();

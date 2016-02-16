@@ -4,17 +4,20 @@ using Nop.Admin.Models.Catalog;
 using Nop.Core.Domain.Catalog;
 using Nop.Services.Catalog;
 using Nop.Services.Seo;
+using Nop.Services.Common;
+using System;
+using System.Web.Routing;
 
 namespace Nop.Plugin.AjouterArticleDepuisDistri
 {
     public class creationArticle : BasePlugin
     {
-        private readonly IProductService _productService;
-        private readonly IUrlRecordService _urlRecordService;
-        private readonly ICategoryService _categoryService;
-        private readonly IManufacturerService _manufacturerService;
+        private static readonly IProductService _productService;
+        private static readonly IUrlRecordService _urlRecordService;
+        private static readonly ICategoryService _categoryService;
+        private static readonly IManufacturerService _manufacturerService;
 
-        public void creerArticle(int idArticle)
+        public static bool creerArticle(int idArticle)
         {
             //Récupération du produit dans la base
             ClientWCF.ServiceReference.Service1Client client = new ClientWCF.ServiceReference.Service1Client();
@@ -78,8 +81,9 @@ namespace Nop.Plugin.AjouterArticleDepuisDistri
                 //Mise à jour du systère de réductions
                 _productService.UpdateHasTierPricesProperty(produit);
                 _productService.UpdateHasDiscountsApplied(produit);
+                return true;
             }
-   
+            return false;
         }
     }
 }

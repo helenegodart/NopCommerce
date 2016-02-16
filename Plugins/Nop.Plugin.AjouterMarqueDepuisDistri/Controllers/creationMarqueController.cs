@@ -6,6 +6,10 @@ namespace Nop.Plugin.AjouterMarqueDepuisDistri.Controllers
 {
     public class creationArticleController : BaseController
     {
-        
+        public ActionResult Create(int id)
+        {
+            creationMarque.creerMarque(id);
+            return View("~/Plugins/AjouterMarqueDepuisDistri/Views/AjouterMarqueDepuisDistri/Success.cshtml");
+        }
     }
 }

@@ -60,3 +60,35 @@ D:\PI\NopCommerce_New\Libraries\Nop.Data\bin\Debug\fr\EntityFramework.SqlServer.
 D:\PI\NopCommerce_New\Libraries\Nop.Data\obj\Debug\Nop.Data.csprojResolveAssemblyReference.cache
 D:\PI\NopCommerce_New\Libraries\Nop.Data\obj\Debug\Nop.Data.dll
 D:\PI\NopCommerce_New\Libraries\Nop.Data\obj\Debug\Nop.Data.pdb
+D:\Programmation\Visual Studio 2015\Projets\GFI\NopCommerce\Libraries\Nop.Data\bin\Debug\Nop.Data.dll.config
+D:\Programmation\Visual Studio 2015\Projets\GFI\NopCommerce\Libraries\Nop.Data\bin\Debug\Nop.Data.dll
+D:\Programmation\Visual Studio 2015\Projets\GFI\NopCommerce\Libraries\Nop.Data\bin\Debug\Nop.Data.pdb
+D:\Programmation\Visual Studio 2015\Projets\GFI\NopCommerce\Libraries\Nop.Data\bin\Debug\EntityFramework.dll
+D:\Programmation\Visual Studio 2015\Projets\GFI\NopCommerce\Libraries\Nop.Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\Programmation\Visual Studio 2015\Projets\GFI\NopCommerce\Libraries\Nop.Data\bin\Debug\EntityFramework.SqlServerCompact.dll
+D:\Programmation\Visual Studio 2015\Projets\GFI\NopCommerce\Libraries\Nop.Data\bin\Debug\Nop.Core.dll
+D:\Programmation\Visual Studio 2015\Projets\GFI\NopCommerce\Libraries\Nop.Data\bin\Debug\System.Data.SqlServerCe.dll
+D:\Programmation\Visual Studio 2015\Projets\GFI\NopCommerce\Libraries\Nop.Data\bin\Debug\Autofac.dll
+D:\Programmation\Visual Studio 2015\Projets\GFI\NopCommerce\Libraries\Nop.Data\bin\Debug\Autofac.Integration.Mvc.dll
+D:\Programmation\Visual Studio 2015\Projets\GFI\NopCommerce\Libraries\Nop.Data\bin\Debug\System.Web.Mvc.dll
+D:\Programmation\Visual Studio 2015\Projets\GFI\NopCommerce\Libraries\Nop.Data\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Programmation\Visual Studio 2015\Projets\GFI\NopCommerce\Libraries\Nop.Data\bin\Debug\System.Web.Razor.dll
+D:\Programmation\Visual Studio 2015\Projets\GFI\NopCommerce\Libraries\Nop.Data\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Programmation\Visual Studio 2015\Projets\GFI\NopCommerce\Libraries\Nop.Data\bin\Debug\System.Web.WebPages.dll
+D:\Programmation\Visual Studio 2015\Projets\GFI\NopCommerce\Libraries\Nop.Data\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Programmation\Visual Studio 2015\Projets\GFI\NopCommerce\Libraries\Nop.Data\bin\Debug\Nop.Core.pdb
+D:\Programmation\Visual Studio 2015\Projets\GFI\NopCommerce\Libraries\Nop.Data\bin\Debug\EntityFramework.xml
+D:\Programmation\Visual Studio 2015\Projets\GFI\NopCommerce\Libraries\Nop.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\Programmation\Visual Studio 2015\Projets\GFI\NopCommerce\Libraries\Nop.Data\bin\Debug\EntityFramework.SqlServerCompact.xml
+D:\Programmation\Visual Studio 2015\Projets\GFI\NopCommerce\Libraries\Nop.Data\bin\Debug\Autofac.xml
+D:\Programmation\Visual Studio 2015\Projets\GFI\NopCommerce\Libraries\Nop.Data\bin\Debug\Autofac.Integration.Mvc.xml
+D:\Programmation\Visual Studio 2015\Projets\GFI\NopCommerce\Libraries\Nop.Data\bin\Debug\System.Web.Mvc.xml
+D:\Programmation\Visual Studio 2015\Projets\GFI\NopCommerce\Libraries\Nop.Data\bin\Debug\System.Web.Razor.xml
+D:\Programmation\Visual Studio 2015\Projets\GFI\NopCommerce\Libraries\Nop.Data\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Programmation\Visual Studio 2015\Projets\GFI\NopCommerce\Libraries\Nop.Data\bin\Debug\System.Web.WebPages.xml
+D:\Programmation\Visual Studio 2015\Projets\GFI\NopCommerce\Libraries\Nop.Data\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Programmation\Visual Studio 2015\Projets\GFI\NopCommerce\Libraries\Nop.Data\bin\Debug\fr\EntityFramework.resources.dll
+D:\Programmation\Visual Studio 2015\Projets\GFI\NopCommerce\Libraries\Nop.Data\bin\Debug\fr\EntityFramework.SqlServer.resources.dll
+D:\Programmation\Visual Studio 2015\Projets\GFI\NopCommerce\Libraries\Nop.Data\obj\Debug\Nop.Data.csprojResolveAssemblyReference.cache
+D:\Programmation\Visual Studio 2015\Projets\GFI\NopCommerce\Libraries\Nop.Data\obj\Debug\Nop.Data.dll
+D:\Programmation\Visual Studio 2015\Projets\GFI\NopCommerce\Libraries\Nop.Data\obj\Debug\Nop.Data.pdb

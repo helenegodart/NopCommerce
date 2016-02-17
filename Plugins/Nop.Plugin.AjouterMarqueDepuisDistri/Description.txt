@@ -5,4 +5,4 @@ Version: 1.00
 SupportedVersions: 3.60
 Author: GFI
 DisplayOrder: 1
-FileName: Nop.Plugin.AjoutMarqueDepuisDistri.dll
+FileName: Nop.Plugin.AjouterMarqueDepuisDistri.dll

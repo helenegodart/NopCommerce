@@ -96,6 +96,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientWCF", "ClientWCF\Clie
 		{FF85AC6F-E4BC-4721-A4EC-69CDC5ACDB6B} = {FF85AC6F-E4BC-4721-A4EC-69CDC5ACDB6B}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nop.Plugin.AjouterMarqueDepuisDistri", "Plugins\Nop.Plugin.AjouterMarqueDepuisDistri\Nop.Plugin.AjouterMarqueDepuisDistri.csproj", "{5F8C4903-01CE-426D-B804-37B8B8C66D4B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -524,6 +526,18 @@ Global
 		{3CC55C56-7695-4EB7-AB6D-7B11144A6E1C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{3CC55C56-7695-4EB7-AB6D-7B11144A6E1C}.Release|x86.ActiveCfg = Release|Any CPU
 		{3CC55C56-7695-4EB7-AB6D-7B11144A6E1C}.Release|x86.Build.0 = Release|Any CPU
+		{5F8C4903-01CE-426D-B804-37B8B8C66D4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F8C4903-01CE-426D-B804-37B8B8C66D4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F8C4903-01CE-426D-B804-37B8B8C66D4B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5F8C4903-01CE-426D-B804-37B8B8C66D4B}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5F8C4903-01CE-426D-B804-37B8B8C66D4B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5F8C4903-01CE-426D-B804-37B8B8C66D4B}.Debug|x86.Build.0 = Debug|Any CPU
+		{5F8C4903-01CE-426D-B804-37B8B8C66D4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F8C4903-01CE-426D-B804-37B8B8C66D4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F8C4903-01CE-426D-B804-37B8B8C66D4B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{5F8C4903-01CE-426D-B804-37B8B8C66D4B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{5F8C4903-01CE-426D-B804-37B8B8C66D4B}.Release|x86.ActiveCfg = Release|Any CPU
+		{5F8C4903-01CE-426D-B804-37B8B8C66D4B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -570,6 +584,7 @@ Global
 		{01DAF2C9-B718-4413-8619-8029094C567B} = {7881B112-7843-4542-B1F7-F99553FB9BB7}
 		{FF85AC6F-E4BC-4721-A4EC-69CDC5ACDB6B} = {7881B112-7843-4542-B1F7-F99553FB9BB7}
 		{3CC55C56-7695-4EB7-AB6D-7B11144A6E1C} = {7881B112-7843-4542-B1F7-F99553FB9BB7}
+		{5F8C4903-01CE-426D-B804-37B8B8C66D4B} = {7881B112-7843-4542-B1F7-F99553FB9BB7}
 	EndGlobalSection
 	GlobalSection(NDepend) = preSolution
 		Project = ".\NopCommerce.ndproj"

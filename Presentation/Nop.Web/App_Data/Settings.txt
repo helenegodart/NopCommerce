@@ -1,2 +1,2 @@
 DataProvider: sqlserver
-DataConnectionString: Data Source=PC-Hélène;Initial Catalog=NopCommerce;Integrated Security=True;Persist Security Info=False
+DataConnectionString: Data Source=SAMSUNG-PERSO;Initial Catalog=NopCommerce;Integrated Security=True;Persist Security Info=False

@@ -265,8 +265,16 @@ namespace Nop.Web.Controllers
                         //currency char
                         var currencySymbol = "";
                         if (!string.IsNullOrEmpty(x.DisplayLocale))
-                            //currencySymbol = new RegionInfo(x.DisplayLocale).CurrencySymbol;
-                            currencySymbol = new RegionInfo("Fr-fr").CurrencySymbol;
+                            try
+                            {
+                                currencySymbol = new RegionInfo(x.DisplayLocale).CurrencySymbol;
+                            }
+                            catch
+                            {
+                                currencySymbol = new RegionInfo("Fr-fr").CurrencySymbol;
+                            }
+
+
                         else
                             currencySymbol = x.CurrencyCode;
                         //model

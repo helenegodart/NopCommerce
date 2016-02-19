@@ -31,12 +31,38 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Mvc">
-      <HintPath>..\..\..\..\..\..\GIT Projets\NopCommerce\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -55,37 +81,48 @@
     <Content Include="Description.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\DataSources\ClientWCF.ServiceReference.CompositeType.datasource" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
     <None Include="Views\AjouterMarqueDepuisDistri\Fail.cshtml" />
     <None Include="Views\AjouterMarqueDepuisDistri\Success.cshtml" />
     <None Include="web.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\ClientWCF\ClientWCF.csproj">
-      <Project>{3cc55c56-7695-4eb7-ab6d-7b11144a6e1c}</Project>
-      <Name>ClientWCF</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Libraries\Nop.Core\Nop.Core.csproj">
       <Project>{6bda8332-939f-45b7-a25e-7a797260ae59}</Project>
       <Name>Nop.Core</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\Libraries\Nop.Data\Nop.Data.csproj">
       <Project>{ccd7f2c9-6a2c-4cf0-8e89-076b8fc0f144}</Project>
       <Name>Nop.Data</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\Libraries\Nop.Services\Nop.Services.csproj">
       <Project>{210541ad-f659-47da-8763-16f36c5cd2f4}</Project>
       <Name>Nop.Services</Name>
+      <Private>True</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\Presentation\Nop.Web.Framework\Nop.Web.Framework.csproj">
       <Project>{75fd4163-333c-4dd5-854d-2ef294e45d94}</Project>
       <Name>Nop.Web.Framework</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\Presentation\Nop.Web\Administration\Nop.Admin.csproj">
       <Project>{152c761a-dd2e-4c1f-af89-dfb2547a3bca}</Project>
       <Name>Nop.Admin</Name>
+      <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\Nop.Plugin.Misc.WebServices\Nop.Plugin.Misc.WebServices.csproj">
+      <Project>{e9253d76-d037-4c53-9b91-ec6eb7ee1a2c}</Project>
+      <Name>Nop.Plugin.Misc.WebServices</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

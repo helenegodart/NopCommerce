@@ -1,12 +1,9 @@
 ﻿using Nop.Core.Plugins;
 using System.Xml;
-using Nop.Admin.Models.Catalog;
 using Nop.Core.Domain.Catalog;
 using Nop.Services.Catalog;
 using Nop.Services.Seo;
-using Nop.Services.Common;
-using System;
-using System.Web.Routing;
+using Nop.Plugin.Misc.WebServices;
 
 namespace Nop.Plugin.AjouterArticleDepuisDistri
 {
@@ -20,8 +17,7 @@ namespace Nop.Plugin.AjouterArticleDepuisDistri
         public static bool creerArticle(int idArticle)
         {
             //Récupération du produit dans la base
-            ClientWCF.ServiceReference.Service1Client client = new ClientWCF.ServiceReference.Service1Client();
-            string article = client.DemandeArticle(idArticle);
+            string article = NopService.demandeArticle(idArticle);
             XmlDocument xmlArticle = new XmlDocument();
             xmlArticle.LoadXml(article);
 

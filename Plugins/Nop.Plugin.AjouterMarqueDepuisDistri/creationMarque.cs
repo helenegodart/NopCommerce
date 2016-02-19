@@ -1,15 +1,9 @@
 ﻿using Nop.Core.Domain.Vendors;
 using Nop.Core.Plugins;
-using Nop.Services.Common;
+using Nop.Plugin.Misc.WebServices;
 using Nop.Services.Seo;
 using Nop.Services.Vendors;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
-using System.Web.Routing;
 
 namespace Nop.Plugin.AjouterMarqueDepuisDistri
 {
@@ -21,8 +15,7 @@ namespace Nop.Plugin.AjouterMarqueDepuisDistri
         public static void creerMarque(int idMarque)
         {
             //Récupération de la marque dans Distri
-            ClientWCF.ServiceReference.Service1Client client = new ClientWCF.ServiceReference.Service1Client();
-            string marque = client.DemandeMarque(idMarque);
+            string marque = NopService.demandeMarque(idMarque);
             XmlDocument xmlArticle = new XmlDocument();
             xmlArticle.LoadXml(marque);
 

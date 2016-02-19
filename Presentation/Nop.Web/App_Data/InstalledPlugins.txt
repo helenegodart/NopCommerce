@@ -21,3 +21,4 @@ Tax.FixedRate
 Tax.CountryStateZip
 Widgets.GoogleAnalytics
 Widgets.NivoSlider
+Nop.plugin.RestService

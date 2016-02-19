@@ -73,7 +73,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\creationArticleController.cs" />
+    <Compile Include="Controllers\creationArticleController.cs" />
     <Compile Include="creationArticle.cs" />
     <Compile Include="Models\creationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,6 +85,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\ClientWCF\ClientWCF.csproj">
+      <Project>{3cc55c56-7695-4eb7-ab6d-7b11144a6e1c}</Project>
+      <Name>ClientWCF</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Libraries\Nop.Core\Nop.Core.csproj">
       <Project>{6bda8332-939f-45b7-a25e-7a797260ae59}</Project>
       <Name>Nop.Core</Name>
@@ -125,9 +129,12 @@
     <None Include="Service References\ServiceReference1\WcfServiceLibrary1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Views\AjouterArticleDepuisDistri\Configure.cshtml">
+    <Content Include="Description.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Views\AjouterArticleDepuisDistri\Fail.cshtml" />
+    <None Include="Views\AjouterArticleDepuisDistri\Success.cshtml" />
+    <None Include="web.config" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ServiceReference1\" />

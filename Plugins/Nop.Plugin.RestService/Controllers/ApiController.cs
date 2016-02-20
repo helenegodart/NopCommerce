@@ -340,6 +340,7 @@ namespace Nop.Plugin.RestService.Controllers
             });
         }
 
+        [HttpPost]
         public ActionResult creerArticle(int id, string apiToken)
         {
             if (!IsApiTokenValid(apiToken))
@@ -350,13 +351,15 @@ namespace Nop.Plugin.RestService.Controllers
                 success = false
             });
         }
+
+        [HttpPost]
         public ActionResult creerMarque(int id, string apiToken)
         {
             if (!IsApiTokenValid(apiToken))
                 return InvalidApiToken(apiToken);
             creationMarque.creerMarque(id);
             return Successful(null);
-            
+
         }
 
         #endregion

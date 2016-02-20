@@ -2,15 +2,10 @@ DiscountRequirement.HadSpentAmount
 DiscountRequirement.HasAllProducts
 DiscountRequirement.HasOneProduct
 DiscountRequirement.MustBeAssignedToCustomerRole
-CurrencyExchange.MoneyConverter
 Payments.CheckMoneyOrder
 Payments.Manual
-Payments.PayPalDirect
-Payments.AuthorizeNet
 Payments.PurchaseOrder
 PromotionFeed.Froogle
-Shipping.AustraliaPost
-Shipping.CanadaPost
 Shipping.FedEx
 Shipping.FixedRate
 Shipping.ByWeight
@@ -19,6 +14,5 @@ Shipping.USPS
 Mobile.SMS.Verizon
 Tax.FixedRate
 Tax.CountryStateZip
-Widgets.GoogleAnalytics
 Widgets.NivoSlider
 Nop.plugin.RestService

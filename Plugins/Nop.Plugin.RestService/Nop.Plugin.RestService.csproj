@@ -112,6 +112,14 @@
       <Project>{4f1f649c-1020-45be-a487-f416d9297ff3}</Project>
       <Name>Nop.Web</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Nop.Plugin.AjouterArticleDepuisDistri\Nop.Plugin.AjouterArticleDepuisDistri.csproj">
+      <Project>{02d637cb-049a-4e66-a003-e6e4324cc423}</Project>
+      <Name>Nop.Plugin.AjouterArticleDepuisDistri</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nop.Plugin.AjouterMarqueDepuisDistri\Nop.Plugin.AjouterMarqueDepuisDistri.csproj">
+      <Project>{5f8c4903-01ce-426d-b804-37b8b8c66d4b}</Project>
+      <Name>Nop.Plugin.AjouterMarqueDepuisDistri</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Description.txt">

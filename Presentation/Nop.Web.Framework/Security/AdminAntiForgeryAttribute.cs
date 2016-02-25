@@ -42,7 +42,7 @@ namespace Nop.Web.Framework.Security
                 return;
             
             var validator = new ValidateAntiForgeryTokenAttribute();
-            validator.OnAuthorization(filterContext);
+     //       validator.OnAuthorization(filterContext);
         }
     }
 }

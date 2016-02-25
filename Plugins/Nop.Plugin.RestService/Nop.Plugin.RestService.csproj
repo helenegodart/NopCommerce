@@ -84,6 +84,10 @@
     <Compile Include="RestServiceSettings.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\ClientWCF\ClientWCF.csproj">
+      <Project>{3cc55c56-7695-4eb7-ab6d-7b11144a6e1c}</Project>
+      <Name>ClientWCF</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Libraries\Nop.Core\Nop.Core.csproj">
       <Project>{6BDA8332-939F-45B7-A25E-7A797260AE59}</Project>
       <Name>Nop.Core</Name>

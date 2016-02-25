@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Linq;
 using System.Xml.Linq;
+using System.Xml;
 
 namespace ProgrammeEntity
 {
@@ -153,8 +154,17 @@ namespace ProgrammeEntity
         {
 
            // Console.WriteLine(Commandes.demandeArticle(7005025));
-            Console.WriteLine(Commandes.demandeMarque(12));
 
+            
+            string article = Commandes.demandeMarque(935);
+            XmlDocument xmlArticle = new XmlDocument();
+            xmlArticle.LoadXml(article);
+            Console.WriteLine(article);
+
+            XmlNode root = xmlArticle.FirstChild;
+
+            Console.WriteLine(root["griffe_ID"].InnerText);
+            Console.WriteLine(root["griffe_Libelle"].InnerText);
             Console.ReadLine();
 
         }
